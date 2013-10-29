@@ -1,6 +1,6 @@
 
 #include <assert.h>
-#include <emitter.h>
+#include "../emitter.h"
 #include "getch.h"
 
 static uv_loop_t *loop = NULL;
@@ -40,7 +40,7 @@ static void
 get_key (async_work_data_t *work) {
   int ch = 0;
   while (EOF != (ch = getch())) {
-    emitter_emit(emitter, "keypress", (void *) ch);
+    emitter_emit(emitter, "keypress", (void *) &ch);
   }
 }
 
@@ -51,5 +51,7 @@ pulse (async_work_data_t *work) {
 
 static void
 on_keypress (void *ch) {
-  printf("key = %c (%d)\n", (int) ch, (int) ch);
+  int c = *(int *) ch;
+
+  printf("key = %c (%d)\n", c, c);
 }
