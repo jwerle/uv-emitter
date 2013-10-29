@@ -8,6 +8,7 @@ all: clean test
 
 clean:
 	rm -f emitter-test
+	cd ./examples && $(MAKE) clean
 
 test:
 	$(CC) test.c $(CFLAGS) -o emitter-test
