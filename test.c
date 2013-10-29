@@ -81,10 +81,10 @@ main (void) {
   // assert that the listeners ids are the
   // address value of the function pointers
   //
-  assert((unsigned long)&on_foo1 == foo_listeners[0]->id);
-  assert((unsigned long) &on_foo2 == foo_listeners[1]->id);
-  assert((unsigned long) &on_bar1 == bar_listeners[0]->id);
-  assert((unsigned long) &on_bar2 == bar_listeners[1]->id);
+  assert((long) &on_foo1 == foo_listeners[0]->id);
+  assert((long) &on_foo2 == foo_listeners[1]->id);
+  assert((long) &on_bar1 == bar_listeners[0]->id);
+  assert((long) &on_bar2 == bar_listeners[1]->id);
 
   async(env, uv_default_loop()) {
     queue(env, emit_foo);

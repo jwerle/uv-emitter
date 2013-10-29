@@ -14,7 +14,7 @@ typedef void (emitter_event_cb)(void *data);
 struct emitter;
 
 typedef struct {
-  int id;
+  long id;
   emitter_event_cb *cb;
   int once;
 } emitter_event_cb_t;
@@ -116,7 +116,7 @@ _create_event_handle (emitter_t *emitter, char *name, emitter_event_cb *cb, int 
   emitter_event_cb_t *cbh = malloc(sizeof(emitter_event_cb_t));
   cbh->cb = cb;
   cbh->once = once;
-  cbh->id = (unsigned long) cb;
+  cbh->id = (long) cb;
 
   event->cbs[event->cb_count++] = cbh;
 
