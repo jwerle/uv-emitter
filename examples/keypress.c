@@ -1,18 +1,4 @@
-emitter.h
-=========
 
-Event emitter in C with an API modeled after Node's EventEmitter using libuv
-
-## install
-
-```sh
-$ clib install jwerle/emitter.h
-```
-
-## usage
-
-Using an the `getch()` function which [getch.h](https://github.com/jwerle/getch.h) implements you can get the keys pressed in stdin
-```c
 #include <assert.h>
 #include <emitter.h>
 #include "getch.h"
@@ -22,6 +8,9 @@ static emitter_t *emitter = NULL;
 
 static void
 get_key (async_work_data_t *work);
+
+static void
+pulse (async_work_data_t *work);
 
 static void
 on_keypress (void *ch);
@@ -40,6 +29,7 @@ main (void) {
     assert(env);
     assert(loop);
     wait(env, 500, get_key);
+    interval(env, 250, pulse);
   }
 
   uv_run(loop, UV_RUN_DEFAULT);
@@ -53,16 +43,13 @@ get_key (async_work_data_t *work) {
     emitter_emit(emitter, "keypress", (void *) ch);
   }
 }
-  
+
+static void
+pulse (async_work_data_t *work) {
+  printf("\r** pulse **\n");
+}
+
 static void
 on_keypress (void *ch) {
   printf("key = %c (%d)\n", (int) ch, (int) ch);
 }
-```
-
-## api
-
-TODO 
-## license
-
-MIT

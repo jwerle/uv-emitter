@@ -1,0 +1,9 @@
+{
+  "name": "emitter.h",
+  "version": "0.0.1",
+  "repo": "jwerle/emitter.h",
+  "description": "Event emitter in C with an API modeled after Node's EventEmitter using libuv",
+  "keywords": ["event", "emitter", "libuv", "async"],
+  "license": "MIT",
+  "src": ["emitter.h", "async.h"]
+}
