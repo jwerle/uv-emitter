@@ -62,7 +62,42 @@ on_keypress (void *ch) {
 
 ## api
 
-TODO 
+### emitter_new(loop)
+
+Allocates a new `emitter_t *` pointer with a `uv_loop_t *` pointer bound
+to it.
+
+#### example
+
+```c
+emitter_t *emitter = emitter_new(uv_default_loop());
+```
+
+## types
+
+### emitter_event_cb
+
+A function pointer that is a callback bound to an event.
+
+```c
+typedef void (emitter_event_cb)(void *data);
+```
+
+### emitter_event_t
+
+A structure that represents an event and its associated callbacks.
+
+```c
+async_env_t         *env;     // async environment that the emitter is executed in
+struct emitter      *emitter; // emitter struct that the event belongs to
+char                *name;    // the name of the event
+void                *data;    // data, if any, to pass to the associated callbacks
+int                 cb_count; // the amount of callbacks associated with the event
+emitter_event_cb_t  *cbs[EMITTER_EVENT_MAX_CALLBACKS; // callbacks associated with this event
+```
+
+###
+
 ## license
 
 MIT
