@@ -1,6 +1,5 @@
-
-#ifndef __EMITTER_H__
-#define __EMITTER_H__ 1
+#ifndef EMITTER_H
+#define EMITTER_H 1
 
 #include <stdlib.h>
 #include <uv.h>
