@@ -1,4 +1,4 @@
-emitter.h
+uv-emitter
 =========
 
 Event emitter in C with an API modeled after Node's EventEmitter using libuv
@@ -6,7 +6,7 @@ Event emitter in C with an API modeled after Node's EventEmitter using libuv
 ## install
 
 ```sh
-$ clib install jwerle/emitter.h
+$ clib install jwerle/uv-emitter
 ```
 
 ## usage
