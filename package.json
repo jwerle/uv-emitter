@@ -1,5 +1,5 @@
 {
-  "name": "emitter.h",
+  "name": "uv-emitter",
   "version": "0.0.1",
   "repo": "jwerle/uv-emitter",
   "description": "Event emitter in C with an API modeled after Node's EventEmitter using libuv",
